@@ -1,0 +1,22 @@
+{
+  "name": "Shopify GraphQL Schema",
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "2021-07": {
+        "url": "https://xxx.myshopify.com/api/2021-07/graphql.json",
+        "headers": {
+          "X-Shopify-Storefront-Access-Token": "xxx"
+        },
+        "introspect": false
+      },
+      "unstable": {
+        "url": "https://xxx.myshopify.com/api/unstable/graphql.json",
+        "headers": {
+          "X-Shopify-Storefront-Access-Token": "xxx"
+        },
+        "introspect": false
+      }
+    }
+  }
+}

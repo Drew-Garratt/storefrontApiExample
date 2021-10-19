@@ -1,0 +1,10 @@
+fragment VideoFragment on Video {
+  id
+  previewImage {
+    originalSrc
+  }
+  sources {
+    mimeType
+    url
+  }
+}

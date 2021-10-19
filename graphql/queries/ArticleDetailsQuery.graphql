@@ -1,0 +1,12 @@
+query ArticleDetails($handle: String!, $articleHandle: String!) {
+  blogByHandle(handle: $handle) {
+    articleByHandle(handle: $articleHandle) {
+      title
+      contentHtml
+      publishedAt
+      author: authorV2 {
+        name
+      }
+    }
+  }
+}

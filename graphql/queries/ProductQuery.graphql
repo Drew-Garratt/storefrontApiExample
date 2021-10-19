@@ -1,0 +1,29 @@
+#import './fragments/ProductQuery.graphql'
+
+query Product(
+  $handle: String!
+  $numProductMetafields: Int!
+  $numProductVariants: Int!
+  $numProductMedia: Int!
+  $numProductVariantMetafields: Int!
+  $numProductVariantSellingPlanAllocations: Int!
+  $numProductSellingPlanGroups: Int!
+  $numProductSellingPlans: Int!
+) {
+  product: product(handle: $handle) {
+    id
+    vendor
+    seo {
+      title
+      description
+    }
+    images(first: 1) {
+      edges {
+        node {
+          originalSrc
+        }
+      }
+    }
+    ...ProductProviderFragment
+  }
+}

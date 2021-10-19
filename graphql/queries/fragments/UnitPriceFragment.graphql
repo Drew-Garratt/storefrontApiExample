@@ -1,0 +1,14 @@
+#import '.MoneyFragment.graphql'
+
+fragment UnitPriceFragment on ProductVariant {
+  unitPriceMeasurement {
+    measuredType
+    quantityUnit
+    quantityValue
+    referenceUnit
+    referenceValue
+  }
+  unitPrice {
+    ...MoneyFragment
+  }
+}

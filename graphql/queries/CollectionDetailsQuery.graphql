@@ -1,0 +1,39 @@
+#import "./fragments/MediaFileFragment.graphql"
+
+fragment CollectionProductDetails on Product {
+  id
+  title
+  handle
+  priceRange {
+    maxVariantPrice {
+      amount
+      currencyCode
+    }
+    minVariantPrice {
+      amount
+      currencyCode
+    }
+  }
+  media(first: 1) {
+    edges {
+      node {
+        ...MediaFileFragment
+      }
+    }
+  }
+}
+
+query CollectionDetails($handle: String!) {
+  collectionByHandle(handle: $handle) {
+    id
+    title
+
+    products(first: 10) {
+      edges {
+        node {
+          ...CollectionProductDetails
+        }
+      }
+    }
+  }
+}

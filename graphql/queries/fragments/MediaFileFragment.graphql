@@ -1,0 +1,25 @@
+#import '.ImageFragment.graphql'
+#import '.VideoFragment.graphql'
+#import '.ExternalVideoFragment.graphql'
+#import '.Model3DFragment.graphql'
+
+fragment MediaFileFragment on Media {
+  ... on MediaImage {
+    mediaContentType
+    image {
+      ...ImageFragment
+    }
+  }
+  ... on Video {
+    mediaContentType
+    ...VideoFragment
+  }
+  ... on ExternalVideo {
+    mediaContentType
+    ...ExternalVideoFragment
+  }
+  ... on Model3d {
+    mediaContentType
+    ...Model3DFragment
+  }
+}

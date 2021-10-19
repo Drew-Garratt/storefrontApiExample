@@ -1,0 +1,54 @@
+fragment NotFoundProductDetails on Product {
+  id
+  title
+  handle
+  priceRange {
+    maxVariantPrice {
+      amount
+      currencyCode
+    }
+    minVariantPrice {
+      amount
+      currencyCode
+    }
+  }
+  variants(first: 1) {
+    edges {
+      node {
+        priceV2 {
+          currencyCode
+          amount
+        }
+        compareAtPriceV2 {
+          currencyCode
+          amount
+        }
+        image {
+          ...ImageFragment
+        }
+        selectedOptions {
+          name
+          value
+        }
+      }
+    }
+  }
+  media(first: 1) {
+    edges {
+      node {
+        ...MediaFileFragment
+      }
+    }
+  }
+}
+
+query Products {
+  products(first: 3) {
+    edges {
+      node {
+        id
+        ...NotFoundProductDetails
+      }
+    }
+  }
+}

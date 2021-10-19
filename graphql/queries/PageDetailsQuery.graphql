@@ -1,0 +1,6 @@
+query PageDetails($handle: String!) {
+  pageByHandle(handle: $handle) {
+    title
+    body
+  }
+}

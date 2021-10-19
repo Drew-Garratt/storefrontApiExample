@@ -1,0 +1,19 @@
+query BlogDetails($handle: String!) {
+  blogByHandle(handle: $handle) {
+    title
+    articles(first: 10) {
+      edges {
+        node {
+          id
+          title
+          handle
+          publishedAt
+          contentHtml
+          author {
+            name
+          }
+        }
+      }
+    }
+  }
+}
